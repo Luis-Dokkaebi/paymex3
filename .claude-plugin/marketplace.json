@@ -1,0 +1,19 @@
+{
+  "name": "paymex3",
+  "owner": {
+    "name": "Luis-Dokkaebi"
+  },
+  "metadata": {
+    "description": "paymex3 agents, skills, commands and hooks"
+  },
+  "plugins": [
+    {
+      "name": "paymex3",
+      "source": "./",
+      "description": "Agents, skills, commands, hooks and rules imported from ECC, plus caveman skills",
+      "version": "1.0.0",
+      "license": "MIT",
+      "category": "workflow"
+    }
+  ]
+}
