@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PAY MEX · KIILONOVA</title>
+  <meta name="description" content="KIILONOVA orquesta 33 agentes que diagnostican y corrigen datos logísticos; PAY MEX concilia fletes y prepara pagos con aprobación humana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232a4fd6'/%3E%3Cpath d='M9 23V9h8a5 5 0 0 1 0 10h-8' fill='none' stroke='%23f7f8fb' stroke-width='3'/%3E%3C/svg%3E" />
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner wrap">
+    <a class="brand" href="#top" aria-label="PAY MEX, inicio">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">PAY MEX</span>
+      <span class="brand__by">× KIILONOVA</span>
+    </a>
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#consola">Consola</a>
+      <a href="#validador">Validador</a>
+      <a href="#paymex">Pagos</a>
+      <a href="#arquitectura">Arquitectura</a>
+      <a href="#informe">Informe</a>
+    </nav>
+    <button class="searchpill" id="cmdk-open" type="button" aria-label="Abrir comandos (Ctrl K)">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
+      <span class="searchpill__text">Comandos</span>
+      <span class="searchpill__kbd"><kbd id="kbd-mod">Ctrl</kbd><kbd>K</kbd></span>
+    </button>
+    <a class="btn btn--primary nav__cta" href="#consola" data-action="start">Iniciar corrida</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero wrap" id="top">
+    <div class="hero__copy">
+      <p class="hero__meta">Orquestación multiagente · datos maestros · pagos</p>
+      <h1 class="hero__title">Ninguna lavadora sale en motocicleta.</h1>
+      <p class="hero__lede">KIILONOVA despliega 33 agentes que diagnostican, reproducen y corrigen las inconsistencias de datos que provocan errores logísticos. PAY MEX concilia cada flete y prepara cada pago. Ningún cambio crítico ni ninguna transferencia avanza sin una persona que lo apruebe.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#consola" data-action="start">Iniciar corrida</a>
+        <a class="link-arrow" href="#arquitectura">Ver arquitectura</a>
+      </div>
+      <dl class="hero__facts" id="hero-facts"></dl>
+    </div>
+    <figure class="code-card" aria-label="Llamada a la API de asignación">
+      <div class="code-card__head">
+        <span class="mono-label">POST /v1/logistics/assign</span>
+        <div class="seg" role="tablist" aria-label="Versión de regla">
+          <button role="tab" aria-selected="true" data-hero-ver="v1.0">v1.0</button>
+          <button role="tab" aria-selected="false" data-hero-ver="v1.2.1">v1.2.1</button>
+        </div>
+      </div>
+      <pre class="code" id="hero-req"></pre>
+      <div class="code-card__split"><span class="status" id="hero-status"></span><span class="mono-label" id="hero-latency"></span></div>
+      <pre class="code" id="hero-res"></pre>
+    </figure>
+  </section>
+
+  <!-- PLATAFORMA -->
+  <section class="section wrap" id="plataforma">
+    <div class="layers">
+      <div class="layers__lead">
+        <h2 class="section__title">Tres sistemas, una sola cadena de evidencia.</h2>
+        <p class="section__lede">Cada hallazgo apunta a un registro, cada corrección queda versionada y cada decisión deja un hash. El caso de referencia es una operación de retail departamental: un pedido de lavadora que el asignador intenta enviar en motocicleta.</p>
+      </div>
+      <ol class="layers__list">
+        <li><span class="layers__name">KIILONOVA</span><span>Orquestador multiagente: razonamiento, coordinación, evaluación y aprendizaje controlado.</span></li>
+        <li><span class="layers__name">PAY MEX</span><span>Pagos: validación documental, riesgo, selección de rieles, aprobaciones y conciliación.</span></li>
+        <li><span class="layers__name">Entorno espejo</span><span>Réplica aislada con datos sintéticos para reproducir fallas sin tocar producción.</span></li>
+        <li><span class="layers__name">Capa de datos</span><span>Catálogo, inventario, pedidos, almacén, transporte y reglas logísticas.</span></li>
+        <li><span class="layers__name">Gobernanza</span><span>Identidad, permisos, auditoría, aprobación humana, reversión y control de cambios.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONSOLA -->
+  <section class="band" id="consola" aria-labelledby="consola-title">
+    <div class="wrap">
+      <div class="band__head">
+        <div>
+          <h2 class="band__title" id="consola-title">Consola de corrida</h2>
+          <p class="band__meta mono"><span id="run-id">RUN</span> · entorno espejo · conjunto sintético seed <span id="run-seed">—</span></p>
+        </div>
+        <div class="controls" role="group" aria-label="Control de corrida">
+          <span class="clock mono" id="clock" aria-live="off">00:00</span>
+          <button class="btn btn--signal" id="run-toggle" type="button">Iniciar</button>
+          <button class="btn btn--ghost" id="run-step" type="button">Paso</button>
+          <button class="btn btn--ghost" id="run-reset" type="button">Reiniciar</button>
+          <div class="seg seg--dark" role="radiogroup" aria-label="Velocidad">
+            <button role="radio" aria-checked="true" data-speed="1">1×</button>
+            <button role="radio" aria-checked="false" data-speed="3">3×</button>
+            <button role="radio" aria-checked="false" data-speed="8">8×</button>
+          </div>
+        </div>
+      </div>
+      <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+      <div class="console">
+        <div class="panel panel--graph">
+          <div class="panel__head">
+            <h3 class="panel__title">Grafo dirigido de dependencias</h3>
+            <label class="toggle"><input type="checkbox" id="show-super" /> <span>Supervisión AG-33 (visual)</span></label>
+          </div>
+          <div class="graph-scroll"><svg id="graph" viewBox="0 0 1040 610" role="img" aria-label="Grafo de 33 agentes y subagentes"></svg></div>
+          <p class="panel__foot mono" id="graph-foot"></p>
+        </div>
+
+        <aside class="panel panel--side">
+          <div class="tabs tabs--dark" role="tablist" aria-label="Detalle">
+            <button role="tab" aria-selected="true" data-side="agent">Agente</button>
+            <button role="tab" aria-selected="false" data-side="sub">Subagentes</button>
+            <button role="tab" aria-selected="false" data-side="tasks">Tareas</button>
+          </div>
+          <div class="side-body" id="side-agent"></div>
+          <div class="side-body" id="side-sub" hidden></div>
+          <div class="side-body" id="side-tasks" hidden></div>
+        </aside>
+
+        <div class="panel panel--log">
+          <div class="panel__head">
+            <h3 class="panel__title">Bitácora</h3>
+            <select id="log-filter" class="select select--dark" aria-label="Filtrar bitácora">
+              <option value="all">Todos los eventos</option>
+              <option value="BLOQUEADO">Solo bloqueos</option>
+              <option value="sev">Con hallazgo</option>
+              <option value="PAY">Solo PAY MEX</option>
+              <option value="SA">Solo subagentes</option>
+            </select>
+          </div>
+          <ol class="log" id="log" aria-live="polite" aria-relevant="additions"></ol>
+          <p class="log-empty" id="log-empty">Inicia la corrida para ver a los agentes trabajar.</p>
+        </div>
+
+        <div class="panel panel--evid">
+          <div class="panel__head"><h3 class="panel__title">Evidencia</h3><span class="mono-label" id="evid-hash"></span></div>
+          <div id="evid" class="evid"><p class="muted-dark">Selecciona un evento de la bitácora.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALIDADOR -->
+  <section class="section wrap" id="validador">
+    <div class="split">
+      <div>
+        <h2 class="section__title">Prueba la regla de asignación.</h2>
+        <p class="section__lede">Elige un producto, un vehículo y una zona. La consola usa exactamente esta función; cambia la versión para ver por qué v1.0 mandaba la lavadora en motocicleta.</p>
+        <form class="form" id="val-form">
+          <label class="field"><span>Producto</span>
+            <select class="select" id="val-prod"></select></label>
+          <div class="field-row">
+            <label class="field"><span>Peso (kg)</span><input class="input" id="val-peso" inputmode="decimal" /></label>
+            <label class="field"><span>Largo</span><input class="input" id="val-d0" inputmode="decimal" /></label>
+            <label class="field"><span>Ancho</span><input class="input" id="val-d1" inputmode="decimal" /></label>
+            <label class="field"><span>Alto (cm)</span><input class="input" id="val-d2" inputmode="decimal" /></label>
+          </div>
+          <fieldset class="field"><legend>Vehículo</legend><div class="chips" id="val-veh"></div></fieldset>
+          <div class="field-row field-row--2">
+            <label class="field"><span>Zona</span>
+              <select class="select" id="val-zona"><option value="NORMAL">Normal</option><option value="CENTRO">Centro histórico (sin camión)</option></select></label>
+            <label class="field"><span>Versión de regla</span>
+              <select class="select" id="val-ver"><option value="v1.0">v1.0 vigente</option><option value="v1.2">v1.2</option><option value="v1.2.1" selected>v1.2.1 candidata</option><option value="v1.3">v1.3 (rechazada)</option></select></label>
+          </div>
+        </form>
+      </div>
+      <div class="verdict" id="verdict" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- PAY MEX -->
+  <section class="section wrap" id="paymex">
+    <h2 class="section__title">PAY MEX: del documento al pago conciliado.</h2>
+    <p class="section__lede">La validación de documentos y la ejecución del pago son etapas separadas. Diez agentes preparan la orden; la ejecución exige proveedor financiero autorizado, credenciales en bóveda y aprobación humana según política.</p>
+    <div class="seg seg--light" role="tablist" aria-label="Documento" id="inv-tabs"></div>
+    <div class="pay">
+      <article class="doc" id="pay-doc"></article>
+      <div class="pipeline">
+        <div class="pipeline__head">
+          <h3 class="h3">Flujo</h3>
+          <div class="pipeline__actions">
+            <button class="btn btn--primary btn--sm" id="pay-next" type="button">Procesar paso</button>
+            <button class="btn btn--quiet btn--sm" id="pay-all" type="button">Hasta aprobación</button>
+            <button class="btn btn--quiet btn--sm" id="pay-reset" type="button">Reiniciar</button>
+          </div>
+        </div>
+        <ol class="steps" id="pay-steps"></ol>
+      </div>
+      <div class="pay-side">
+        <div class="card">
+          <h3 class="h3">Rieles y costo total</h3>
+          <p class="note">Tarifas y tipo de cambio son supuestos editables, no cotizaciones.</p>
+          <div class="table-wrap"><table class="table" id="rails"></table></div>
+          <label class="field field--inline"><span>Tipo de cambio supuesto (MXN/USD)</span><input class="input input--sm" id="fx" value="18.40" inputmode="decimal" /></label>
+        </div>
+        <div class="card" id="approvals"></div>
+        <div class="card" id="recon"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARQUITECTURA -->
+  <section class="section wrap" id="arquitectura">
+    <h2 class="section__title">Diseño técnico implementable.</h2>
+    <p class="section__lede">Once entregables: arquitectura, dependencias, agentes, datos, reglas, contratos, pruebas, seguridad, despliegue, costos y criterios de salida.</p>
+    <div class="tabs" role="tablist" aria-label="Entregables técnicos" id="arch-tabs"></div>
+    <div class="arch" id="arch-body"></div>
+  </section>
+
+  <!-- INFORME -->
+  <section class="section wrap" id="informe">
+    <div class="report-head">
+      <div>
+        <h2 class="section__title">Informe de corrida</h2>
+        <p class="section__lede" id="report-state">La corrida aún no inicia. Las métricas de pruebas y datos se calculan al cargar; las de tareas se llenan al cerrar la corrida.</p>
+      </div>
+      <div class="report-actions">
+        <button class="btn btn--quiet" id="dl-log" type="button">Descargar bitácora</button>
+        <button class="btn btn--primary" id="dl-report" type="button">Descargar informe</button>
+      </div>
+    </div>
+    <div class="metrics" id="metrics"></div>
+    <div class="report-grid">
+      <div class="card"><h3 class="h3">Escenarios por familia</h3><div class="table-wrap"><table class="table" id="scen"></table></div></div>
+      <div class="card">
+        <h3 class="h3">Impacto estimado</h3>
+        <p class="note">Calculado con supuestos que tú defines. Ninguna cifra proviene de pérdidas reales.</p>
+        <div class="field-row field-row--2">
+          <label class="field"><span>Tasa observada de asignación incompatible (%)</span><input class="input" id="as-rate" placeholder="dato del cliente" inputmode="decimal" /></label>
+          <label class="field"><span>Costo supuesto por entrega fallida (MXN)</span><input class="input" id="as-fail" value="850" inputmode="decimal" /></label>
+        </div>
+        <div class="field-row field-row--2">
+          <label class="field"><span>Pedidos mensuales supuestos</span><input class="input" id="as-vol" value="20000" inputmode="numeric" /></label>
+        </div>
+        <div id="impact"></div>
+        <h3 class="h3 h3--gap">Costo de inferencia</h3>
+        <div class="field-row field-row--2">
+          <label class="field"><span>USD por millón de tokens de entrada</span><input class="input" id="as-tin" value="3" inputmode="decimal" /></label>
+          <label class="field"><span>USD por millón de tokens de salida</span><input class="input" id="as-tout" value="15" inputmode="decimal" /></label>
+        </div>
+        <div id="infer"></div>
+      </div>
+    </div>
+    <div class="report-grid">
+      <div class="card"><h3 class="h3">Riesgos residuales</h3><ul class="list" id="risks"></ul></div>
+      <div class="card"><h3 class="h3">Cambios que requieren aprobación humana</h3><ul class="list" id="human"></ul></div>
+    </div>
+    <div class="card card--questions">
+      <h3 class="h3">Datos faltantes y preguntas concretas</h3>
+      <ol class="list list--num" id="questions"></ol>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span class="brand__name">PAY MEX</span>
+    <span class="foot__line">Orquestación con evidencia, pagos con aprobación.</span>
+    <span class="foot__note">Corrida sobre datos sintéticos en entorno espejo. Las etiquetas LVP_*, SKU, pedidos, proveedores, importes y CLABE son ficticios. La operación de Liverpool se usa como escenario de referencia; ningún dato proviene de sus sistemas y no implica relación comercial.</span>
+  </div>
+</footer>
+
+<!-- Paleta de comandos -->
+<div class="cmdk" id="cmdk" aria-hidden="true">
+  <div class="cmdk__backdrop" data-close></div>
+  <div class="cmdk__panel" role="dialog" aria-modal="true" aria-label="Comandos">
+    <div class="cmdk__field">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
+      <input id="cmdk-input" placeholder="Escribe un comando…" autocomplete="off" aria-controls="cmdk-list" />
+      <kbd>esc</kbd>
+    </div>
+    <div class="cmdk__results" id="cmdk-list" role="listbox"></div>
+    <div class="cmdk__foot"><span><kbd>↑</kbd><kbd>↓</kbd> mover</span><span><kbd>↵</kbd> ejecutar</span><span><kbd>esc</kbd> cerrar</span></div>
+  </div>
+</div>
+
+<!-- Compuerta de aprobación -->
+<dialog class="gate" id="gate" aria-labelledby="gate-title">
+  <form method="dialog" class="gate__form" id="gate-form">
+    <h2 class="gate__title" id="gate-title">Expediente EXP-0417</h2>
+    <p class="gate__lede">AG-31 solicita aprobación humana para promover los cambios a <strong>staging controlado</strong>. Producción queda fuera de esta decisión y requiere su propia ventana de cambio.</p>
+    <ul class="gate__list" id="gate-list"></ul>
+    <label class="field"><span>Quién aprueba</span>
+      <select class="select" id="gate-who">
+        <option value="">Selecciona una identidad</option>
+        <option value="h-datos">Responsable de Datos Maestros (persona)</option>
+        <option value="h-logistica">Gerencia de Operación Logística (persona)</option>
+        <option value="AG-26">AG-26 Autonomous engineer (autor del cambio)</option>
+        <option value="AG-30">AG-30 Self-evolution engine</option>
+      </select></label>
+    <p class="gate__msg" id="gate-msg" role="alert"></p>
+    <div class="gate__actions">
+      <button class="btn btn--quiet" value="reject" id="gate-reject">Mantener en espejo</button>
+      <button class="btn btn--primary" value="approve" id="gate-approve">Aprobar promoción</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script src="events.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
